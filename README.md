@@ -9,6 +9,9 @@ mkdir test-projekt
 
 cd test-projekt
 
+Seejärgel on vaja gitist võtta test kaust mis sisaldab testi faili ja viia loodud kasuta  
+Loodud kasutas "test-project" tuleb käivitada järgmised käsud: 
+
 npm init --yes
 
 npm i --save mocha@4.0.1 puppeteer@0.13.0 chai@4.1.2 http-server@0.10.0
