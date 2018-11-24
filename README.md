@@ -17,11 +17,8 @@ npm i --save lodash
 
 Enne testide käivitamis on veel vaja confida genereeritud package.json faili ja asendada "scripts" sisu
 
-*
-"test": "mocha test/bootstrap.js --recursive test",
-*
+"test": "mocha test/bootstrap.js --recursive test",  
 "server": "http-server src"
-*
 
 npm install
 
