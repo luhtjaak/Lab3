@@ -15,8 +15,7 @@ npm i --save mocha@4.0.1 puppeteer@0.13.0 chai@4.1.2 http-server@0.10.0
 
 npm i --save lodash
 
-Enne testide käivitamis on veel vaja confida genereeritud package.json faili ja asendada "scripts" sisu
----------------
+<b>Enne testide käivitamis on veel vaja confida genereeritud package.json faili ja asendada "scripts" sisu</b>
 
 "test": "mocha test/bootstrap.js --recursive test",  
 "server": "http-server src"
