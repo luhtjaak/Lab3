@@ -3,14 +3,7 @@
 
 Testide jooksutamiseks peab olema arvutisse installeeritud node (8.12.0) ja npm (6.4.1)
 
-Testide jooksutamiseks on vaja teha esmaslt kaust kuhu testid panna ja liikuda sinna kasuta
-
-mkdir test-projekt
-
-cd test-projekt
-
-Seejärgel on vaja gitist võtta test kaust mis sisaldab testi faili ja viia loodud kasuta  
-Loodud kasutas "test-project" tuleb käivitada järgmised käsud: 
+Liigu käsurealt alla tõmmatud projekti kausta ja sisesta järgmised käsud:
 
 npm init --yes
 
