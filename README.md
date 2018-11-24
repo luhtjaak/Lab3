@@ -1,5 +1,5 @@
 # Lab3
-Lab 3 project
+<b>Lab 3 project</b>
 
 Testide jooksutamiseks peab olema arvutisse installeeritud node (8.12.0) ja npm (6.4.1)
 
