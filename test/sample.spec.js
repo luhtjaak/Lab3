@@ -21,143 +21,143 @@ before(async () => {
 })
 
 // Start a test suite
-// describe('Kasutaja autentimine', () => {
-//   it('Kasutaja on amazon.co.uk lehel', async () => {
+describe('Kasutaja autentimine', () => {
+  it('Kasutaja on amazon.co.uk lehel', async () => {
 
-//     // Set the view port size
-//     await page.setViewport({ width: 1280, height: 800 })
-//     await page.goto('https://www.amazon.co.uk/', { waitUntil: 'networkidle0' })
+    // Set the view port size
+    await page.setViewport({ width: 1280, height: 800 })
+    await page.goto('https://www.amazon.co.uk/', { waitUntil: 'networkidle0' })
 
-//     // Assert the search input is there
-//     const searchInput = await page.$('input#twotabsearchtextbox')
-//     assert.ok(searchInput)
-//   }).timeout(50000)
+    // Assert the search input is there
+    const searchInput = await page.$('input#twotabsearchtextbox')
+    assert.ok(searchInput)
+  }).timeout(50000)
 
-//   it('Kasutaja saab sisse logida', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.waitForSelector('#nav-tools')
-//     await page.click('#nav-link-yourAccount')
-//     await page.waitForSelector('#authportal-main-section')
-//     await page.type('#ap_email', 'testkasutaja3@hotmail.com')
-//     await page.type('#ap_password', 'Testkasutaja123')
-//     await page.click('#signInSubmit')
-//     await page.waitForSelector('#nav-search')
-//     await page.screenshot({ path: 'amzFN10.png'})
-//     await page.click('#nav-logo > a.nav-logo-link')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Kasutaja saab sisse logida', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.waitForSelector('#nav-tools')
+    await page.click('#nav-link-yourAccount')
+    await page.waitForSelector('#authportal-main-section')
+    await page.type('#ap_email', 'testkasutaja3@hotmail.com')
+    await page.type('#ap_password', 'Testkasutaja123')
+    await page.click('#signInSubmit')
+    await page.waitForSelector('#nav-search')
+    await page.screenshot({ path: 'amzFN10.png'})
+    await page.click('#nav-logo > a.nav-logo-link')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('Kasutaja saab välja logida', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.waitForSelector('#nav-flyout-anchor')
-//     await page.hover('#nav-link-yourAccount')
-//     await page.waitForSelector('#nav-flyout-yourAccount > div.nav-template.nav-flyout-content.nav-tpl-itemList')
-//     await page.click('#nav-item-signout')
-//     await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
-//     await page.screenshot({ path: 'amzFN11.png'})
-//     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
-//   }).timeout(50000)
+  it('Kasutaja saab välja logida', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.waitForSelector('#nav-flyout-anchor')
+    await page.hover('#nav-link-yourAccount')
+    await page.waitForSelector('#nav-flyout-yourAccount > div.nav-template.nav-flyout-content.nav-tpl-itemList')
+    await page.click('#nav-item-signout')
+    await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
+    await page.screenshot({ path: 'amzFN11.png'})
+    await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+  }).timeout(50000)
 
-//   it('Registreerimata kasutaja ei saa toote eest maksta', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.type('input#twotabsearchtextbox', 'Office chair')
-//     await page.click('#nav-search > form > div.nav-right')
-//     await page.waitForSelector('#resultsCol')
-//     await page.click('#atfResults')
-//     await page.waitForSelector('#dp-container')
-//     await page.waitForSelector('#buyNow_feature_div')
-//     await page.screenshot({ path: 'amzFN4-1.png'})
-//     await page.click('#buy-now-button')
-//     await page.waitForSelector('#authportal-main-section')
-//     const landedOnLogin = await page.$('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
-//     assert.ok(landedOnLogin)
-//     await page.screenshot({ path: 'amzFN4-2.png'})
-//     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Registreerimata kasutaja ei saa toote eest maksta', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.type('input#twotabsearchtextbox', 'Office chair')
+    await page.click('#nav-search > form > div.nav-right')
+    await page.waitForSelector('#resultsCol')
+    await page.click('#atfResults')
+    await page.waitForSelector('#dp-container')
+    await page.waitForSelector('#buyNow_feature_div')
+    await page.screenshot({ path: 'amzFN4-1.png'})
+    await page.click('#buy-now-button')
+    await page.waitForSelector('#authportal-main-section')
+    const landedOnLogin = await page.$('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
+    assert.ok(landedOnLogin)
+    await page.screenshot({ path: 'amzFN4-2.png'})
+    await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('Kasutaja avab kliendiabi lehe', async () => {
-//     await page.waitForSelector('#navFooter')
-//     await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(7) > ul > li.nav_last > a')
-//     await page.waitForSelector('body > div:nth-child(27) > div.help-content.csg > div.csg-inner > div.csg-header.a-row.a-spacing-small > div > h1')
-//     await page.screenshot({ path: 'amzFN2.png'})
-//     await page.click('#nav-logo > a.nav-logo-link')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Kasutaja avab kliendiabi lehe', async () => {
+    await page.waitForSelector('#navFooter')
+    await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(7) > ul > li.nav_last > a')
+    await page.waitForSelector('body > div:nth-child(27) > div.help-content.csg > div.csg-inner > div.csg-header.a-row.a-spacing-small > div > h1')
+    await page.screenshot({ path: 'amzFN2.png'})
+    await page.click('#nav-logo > a.nav-logo-link')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('Kasutajakonto loomine', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.waitForSelector('#nav-tools')
-//     await page.click('#nav-link-yourAccount')
-//     await page.waitForSelector('#authportal-main-section')
-//     await page.click('#createAccountSubmit')
-//     await page.waitForSelector('#ap_register_form > div > div > h1')
-//     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Kasutajakonto loomine', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.waitForSelector('#nav-tools')
+    await page.click('#nav-link-yourAccount')
+    await page.waitForSelector('#authportal-main-section')
+    await page.click('#createAccountSubmit')
+    await page.waitForSelector('#ap_register_form > div > div > h1')
+    await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('Kasutaja on unustanud parooli', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.waitForSelector('#nav-tools')
-//     await page.click('#nav-link-yourAccount')
-//     await page.waitForSelector('#authportal-main-section')
-//     await page.click('#auth-fpp-link-bottom')
-//     await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div.a-box.a-spacing-base > div > form > h1')
-//     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Kasutaja on unustanud parooli', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.waitForSelector('#nav-tools')
+    await page.click('#nav-link-yourAccount')
+    await page.waitForSelector('#authportal-main-section')
+    await page.click('#auth-fpp-link-bottom')
+    await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div.a-box.a-spacing-base > div > form > h1')
+    await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-// })
+})
 
-// describe('Sooduspakkumised ning kampaaniad kasutajale', () => {
-//   it('Kasutaja on amazon.co.uk lehel', async () => {
+describe('Sooduspakkumised ning kampaaniad kasutajale', () => {
+  it('Kasutaja on amazon.co.uk lehel', async () => {
 
-//     // Set the view port size
-//     await page.setViewport({ width: 1280, height: 800 })
-//     await page.goto('https://www.amazon.co.uk/', { waitUntil: 'networkidle0' })
+    // Set the view port size
+    await page.setViewport({ width: 1280, height: 800 })
+    await page.goto('https://www.amazon.co.uk/', { waitUntil: 'networkidle0' })
 
-//     // Assert the search input is there
-//     const searchInput = await page.$('input#twotabsearchtextbox')
-//     assert.ok(searchInput)
-//   }).timeout(50000)
+    // Assert the search input is there
+    const searchInput = await page.$('input#twotabsearchtextbox')
+    assert.ok(searchInput)
+  }).timeout(50000)
 
-//   it('Käiva kampaania lehele navigeerimine', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.click('#nav-xshop > a:nth-child(3)')
-//     await page.waitForSelector('#notification-provider')
-//     await page.click('#nav-logo > a.nav-logo-link')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Käiva kampaania lehele navigeerimine', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.click('#nav-xshop > a:nth-child(3)')
+    await page.waitForSelector('#notification-provider')
+    await page.click('#nav-logo > a.nav-logo-link')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('Amazom prime prooviaja lehele navigeerimine', async () => {
-//     await page.waitForSelector('#nav-search')
-//     await page.waitForSelector('#nav-tools')
-//     await page.click('#nav-link-prime')
-//     await page.waitForSelector('#prime-hero-header')
-//     await page.click('#prime-header-CTA > span > input')
-//     await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
-//     await page.screenshot({ path: 'amzFN9.png'})
-//     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('Amazom prime prooviaja lehele navigeerimine', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.waitForSelector('#nav-tools')
+    await page.click('#nav-link-prime')
+    await page.waitForSelector('#prime-hero-header')
+    await page.click('#prime-header-CTA > span > input')
+    await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
+    await page.screenshot({ path: 'amzFN9.png'})
+    await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('e-poodi tutvustav leht "About us"', async () => {
-//     await page.waitForSelector('#navFooter')
-//     await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(1) > ul > li:nth-child(2) > a')
-//     await page.waitForSelector('body > footer > div')
-//     await page.screenshot({ path: 'amzFN7.png'})
-//     await page.click('body > footer > div > div.PageHome-footer-topRow > div.PageHome-footerContent > a')
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
+  it('e-poodi tutvustav leht "About us"', async () => {
+    await page.waitForSelector('#navFooter')
+    await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(1) > ul > li:nth-child(2) > a')
+    await page.waitForSelector('body > footer > div')
+    await page.screenshot({ path: 'amzFN7.png'})
+    await page.click('body > footer > div > div.PageHome-footer-topRow > div.PageHome-footerContent > a')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
 
-//   it('Tööpakkumise lehe kuvamine', async () => {
-//     await page.waitForSelector('#navFooter')
-//     await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(1) > ul > li.nav_first > a')
-//     await page.waitForSelector('#home-search > h1')
-//     await page.goBack()
-//     await page.waitForSelector('#nav-search')
-//   }).timeout(50000)
-// })
+  it('Tööpakkumise lehe kuvamine', async () => {
+    await page.waitForSelector('#navFooter')
+    await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(1) > ul > li.nav_first > a')
+    await page.waitForSelector('#home-search > h1')
+    await page.goBack()
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
+})
 
 describe('Ostukorvi funktsionaalsus', () => {
   it('Kasutaja on amazon.co.uk lehel', async () => {
