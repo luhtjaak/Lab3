@@ -33,7 +33,7 @@ describe('Kasutaja autentimine', () => {
     assert.ok(searchInput)
   }).timeout(50000)
 
-  it('Kasutaja saab sisse logida', async () => {
+  it('Kasutaja saab sisse logida (Test 4)', async () => {
     await page.waitForSelector('#nav-search')
     await page.waitForSelector('#nav-tools')
     await page.click('#nav-link-yourAccount')
@@ -42,67 +42,66 @@ describe('Kasutaja autentimine', () => {
     await page.type('#ap_password', 'Testkasutaja123')
     await page.click('#signInSubmit')
     await page.waitForSelector('#nav-search')
-    await page.screenshot({ path: 'amzFN10.png'})
+    await page.screenshot({ path: 'test4.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Kasutaja saab välja logida', async () => {
+  it('Kasutaja saab välja logida (Test 5)', async () => {
     await page.waitForSelector('#nav-search')
     await page.waitForSelector('#nav-flyout-anchor')
     await page.hover('#nav-link-yourAccount')
     await page.waitForSelector('#nav-flyout-yourAccount > div.nav-template.nav-flyout-content.nav-tpl-itemList')
     await page.click('#nav-item-signout')
     await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
-    await page.screenshot({ path: 'amzFN11.png'})
+    await page.screenshot({ path: 'test5.png'})
     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
   }).timeout(50000)
 
-  it('Registreerimata kasutaja ei saa toote eest maksta', async () => {
+  it('Registreerimata kasutaja ei saa toote eest maksta (Test 6)', async () => {
     await page.waitForSelector('#nav-search')
-    await page.type('input#twotabsearchtextbox', 'Office chair')
+    await page.type('input#twotabsearchtextbox', 'Wilton Kingsize Six Hole Muffin Tin')
     await page.click('#nav-search > form > div.nav-right')
     await page.waitForSelector('#resultsCol')
-    await page.click('#atfResults')
+    await page.click('#result_1 > div > div.a-fixed-left-grid > div > div.a-fixed-left-grid-col.a-col-right > div.a-row.a-spacing-small > div:nth-child(1) > a > h2')
     await page.waitForSelector('#dp-container')
     await page.waitForSelector('#buyNow_feature_div')
-    await page.screenshot({ path: 'amzFN4-1.png'})
     await page.click('#buy-now-button')
     await page.waitForSelector('#authportal-main-section')
-    const landedOnLogin = await page.$('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
-    assert.ok(landedOnLogin)
-    await page.screenshot({ path: 'amzFN4-2.png'})
+    await page.screenshot({ path: 'test6.png'})
     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Kasutaja avab kliendiabi lehe', async () => {
+  it('Kasutaja avab kliendiabi lehe (Test 1)', async () => {
     await page.waitForSelector('#navFooter')
     await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(7) > ul > li.nav_last > a')
     await page.waitForSelector('body > div:nth-child(27) > div.help-content.csg > div.csg-inner > div.csg-header.a-row.a-spacing-small > div > h1')
-    await page.screenshot({ path: 'amzFN2.png'})
+    await page.screenshot({ path: 'test1.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Kasutajakonto loomine', async () => {
+  it('Kasutajakonto loomine (Test 2)', async () => {
     await page.waitForSelector('#nav-search')
     await page.waitForSelector('#nav-tools')
     await page.click('#nav-link-yourAccount')
     await page.waitForSelector('#authportal-main-section')
     await page.click('#createAccountSubmit')
     await page.waitForSelector('#ap_register_form > div > div > h1')
+    await page.screenshot({ path: 'test2.png'})
     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Kasutaja on unustanud parooli', async () => {
+  it('Kasutaja on unustanud parooli (Test 3)', async () => {
     await page.waitForSelector('#nav-search')
     await page.waitForSelector('#nav-tools')
     await page.click('#nav-link-yourAccount')
     await page.waitForSelector('#authportal-main-section')
     await page.click('#auth-fpp-link-bottom')
     await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div.a-box.a-spacing-base > div > form > h1')
+    await page.screenshot({ path: 'test3.png'})
     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
@@ -121,39 +120,40 @@ describe('Sooduspakkumised ning kampaaniad kasutajale', () => {
     assert.ok(searchInput)
   }).timeout(50000)
 
-  it('Käiva kampaania lehele navigeerimine', async () => {
+  it('Käiva kampaania lehele navigeerimine (Test 17)', async () => {
     await page.waitForSelector('#nav-search')
-    await page.click('#nav-xshop > a:nth-child(3)')
-    await page.waitForSelector('#notification-provider')
-    await page.click('#nav-logo > a.nav-logo-link')
+    await page.click('#nav-belt > div.nav-right')
+    await page.screenshot({ path: 'test17.png'})
+    await page.goBack()
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Amazom prime prooviaja lehele navigeerimine', async () => {
+  it('Amazom prime prooviaja lehele navigeerimine (Test 16)', async () => {
     await page.waitForSelector('#nav-search')
     await page.waitForSelector('#nav-tools')
     await page.click('#nav-link-prime')
     await page.waitForSelector('#prime-hero-header')
     await page.click('#prime-header-CTA > span > input')
     await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div')
-    await page.screenshot({ path: 'amzFN9.png'})
+    await page.screenshot({ path: 'test16.png'})
     await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('e-poodi tutvustav leht "About us"', async () => {
+  it('e-poodi tutvustav leht "About us" (Test 15)', async () => {
     await page.waitForSelector('#navFooter')
     await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(1) > ul > li:nth-child(2) > a')
     await page.waitForSelector('body > footer > div')
-    await page.screenshot({ path: 'amzFN7.png'})
+    await page.screenshot({ path: 'test15.png'})
     await page.click('body > footer > div > div.PageHome-footer-topRow > div.PageHome-footerContent > a')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Tööpakkumise lehe kuvamine', async () => {
+  it('Tööpakkumise lehe kuvamine (Test 13)', async () => {
     await page.waitForSelector('#navFooter')
     await page.click('#navFooter > div.navFooterVerticalColumn.navAccessibility > div > div:nth-child(1) > ul > li.nav_first > a')
     await page.waitForSelector('#home-search > h1')
+    await page.screenshot({ path: 'test13.png'})
     await page.goBack()
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
@@ -171,57 +171,53 @@ describe('Ostukorvi funktsionaalsus', () => {
     assert.ok(searchInput)
   }).timeout(50000)
 
-  it('Toote otsimine, mis on laoseisus ', async () => {
-    // kasutaja otsib terminit "Office chair"
-    await page.type('input#twotabsearchtextbox', 'Office chair')
+  it('Toote otsimine, mis on laoseisus (Test 7)', async () => {
+    await page.type('input#twotabsearchtextbox', 'Wilton Kingsize Six Hole Muffin Tin')
     await page.click('#nav-search > form > div.nav-right')
     await page.waitForSelector('#resultsCol')
     const displayProduct = await page.$('#result_0')
     assert.ok(displayProduct)
-    await page.screenshot({ path: 'amzFN1.png'})
+    await page.screenshot({ path: 'test7success.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search') 
   }).timeout(50000)
 
-  it('Toote otsimine, mida ei ole laoseisus ', async () => {
+  it('Toote otsimine, mida ei ole laoseisus (Test 7)', async () => {
     await page.type('input#twotabsearchtextbox', 'Blue unorthodox chipmunk eating a bagle')
     await page.click('#nav-search > form > div.nav-right')
     await page.waitForSelector('#noResultsTitle')
     const noProduct = await page.$('#noResultsTitle')
     assert.ok(noProduct)
-    await page.screenshot({ path: 'amzFN1.png'})
+    await page.screenshot({ path: 'test7fail.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search') 
   }).timeout(50000)
 
-  it('Kasutaja sorteerib hinna alusesl otsingu tulemusi', async () => {
+  it('Toote info vaatamine (Test 12)', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.type('input#twotabsearchtextbox', 'Wilton Kingsize Six Hole Muffin Tin')
+    await page.click('#nav-search > form > div.nav-right')
+    await page.waitForSelector('#resultsCol')
+    await page.screenshot({ path: 'test12.png'})
+    await page.waitForSelector('#nav-search')
+    await page.click('#nav-logo > a.nav-logo-link')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
+
+  it('Kasutaja sorteerib hinna alusesl otsingu tulemusi (Test 8)', async () => {
     await page.waitForSelector('#nav-search')
     await page.type('input#twotabsearchtextbox', 'Office chair')
     await page.click('#nav-search > form > div.nav-right')
     await page.waitForSelector('#s-result-info-bar-content')
     await page.waitForSelector('#resultsCol')
-    await page.screenshot({ path: 'amzFN3-1.png'})
     await page.select('#sort', 'price-asc-rank')
     await page.waitForSelector('#resultsCol')
-    await page.screenshot({ path: 'amzFN3-2.png'})
+    await page.screenshot({ path: 'test8.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Toote eest maksmine', async () => {
-    await page.waitForSelector('#nav-search')
-    await page.click('#nav-cart')
-    await page.waitForSelector('#a-page > div.a-container')
-    await page.waitForSelector('#buy-now-button')
-    await page.click('#buy-now-button')
-    await page.waitForSelector('#authportal-main-section > div:nth-child(2) > div > div > form > div > div > div > h1')
-    await page.goBack()
-    await page.waitForSelector('#nav-search')
-    await page.click('#nav-logo > a.nav-logo-link')
-    await page.waitForSelector('#nav-search')
-  }).timeout(50000)
-
-  it('Toote ostukorvi lisamine', async () => {
+  it('Toote ostukorvi lisamine (Test 9)', async () => {
     await page.waitForSelector('#nav-search')
     await page.type('input#twotabsearchtextbox', 'Wilton Kingsize Six Hole Muffin Tin')
     await page.click('#nav-search > form > div.nav-right')
@@ -238,11 +234,12 @@ describe('Ostukorvi funktsionaalsus', () => {
     await page.waitForSelector('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature')
     const addedToCartItem = await page.$('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature')
     assert.ok(addedToCartItem)
+    await page.screenshot({ path: 'test9.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Toote koguse muutmine ostukorvis', async () => {
+  it('Toote koguse muutmine ostukorvis (Test 11)', async () => {
     await page.waitForSelector('#nav-search')
     await page.click('#nav-cart')
     await page.waitForSelector('#a-page > div.a-container')
@@ -252,21 +249,33 @@ describe('Ostukorvi funktsionaalsus', () => {
     await page.click('#dropdown1_1')
     await page.waitForSelector('#a-popover-1 > div > div')
     await page.waitForSelector('#nav-search')
+    await page.screenshot({ path: 'test11.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
 
-  it('Toote ostukorvist eemaldamine ', async () => {
+  it('Toote eest maksmise lehele suunamine (Test 18)', async () => {
+    await page.waitForSelector('#nav-search')
+    await page.click('#nav-cart')
+    await page.waitForSelector('#a-page > div.a-container')
+    await page.waitForSelector('#sc-buy-box-ptc-button')
+    await page.click('#sc-buy-box-ptc-button')
+    await page.waitForSelector('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+    await page.screenshot({ path: 'test18.png'})
+    await page.click('#a-page > div.a-section.a-padding-medium.auth-workflow > div.a-section.a-spacing-none.auth-navbar > div > a')
+    await page.waitForSelector('#nav-search')
+  }).timeout(50000)
+
+  it('Toote ostukorvist eemaldamine (Test 10)', async () => {
     await page.waitForSelector('#nav-search')
     await page.click('#nav-cart')
     await page.waitForSelector('#a-page > div.a-container')
     await page.waitForSelector('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature > div > div.sc-list-item-content > div > div.a-column.a-span8 > div > div > div.a-fixed-left-grid-col.a-col-right')
-    await page.screenshot({ path: 'amzFN6-1.png'})
     await page.click('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature > div > div.sc-list-item-content > div > div.a-column.a-span8 > div > div > div.a-fixed-left-grid-col.a-col-right > div > span.a-size-small.sc-action-delete > span > input[type="submit"]')
-    await page.waitForSelector('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature > div > div.sc-list-item-removed-msg.a-padding-medium')
-    const cartEmpty = await page.$('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature > div > div.sc-list-item-removed-msg.a-padding-medium')
-    assert.ok(cartEmpty)
-    await page.screenshot({ path: 'amzFN6-2.png'})
+    await page.waitForSelector('#sc-active-cart > div')
+    // const cartEmpty = await page.$('#activeCartViewForm > div.sc-list-body.sc-java-remote-feature > div > div.sc-list-item-removed-msg.a-padding-medium')
+    // assert.ok(cartEmpty)
+    await page.screenshot({ path: 'test10.png'})
     await page.click('#nav-logo > a.nav-logo-link')
     await page.waitForSelector('#nav-search')
   }).timeout(50000)
